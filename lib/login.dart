@@ -62,7 +62,9 @@ class _LoginPageState extends State<LoginPage> {
               alignment: MainAxisAlignment.end,
               // TODO: Add a beveled rectangular border to CANCEL (103)
               children: <Widget>[
-                // TODO: Add buttons (101)
+                TextButton(
+                child: const Text('CANCEL'),
+                onPressed: () {              
               ],
             ),
           ],
