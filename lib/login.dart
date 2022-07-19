@@ -22,6 +22,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
   // TODO: Add text editing controllers (101)
   @override
   Widget build(BuildContext context) {
