@@ -22,9 +22,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  // TODO: Add text editing controllers (101)
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
-  // TODO: Add text editing controllers (101)
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +45,7 @@ class _LoginPageState extends State<LoginPage> {
             // TODO: Add TextField widgets (101)
             // [Name]
             TextField(
+              controller: _usernameController,
               decoration: const InputDecoration(
                 filled: true,
                 labelText: 'Username',
