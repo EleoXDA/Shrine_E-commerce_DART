@@ -48,6 +48,15 @@ class HomePage extends StatelessWidget {
                 print('Search button');
               },
             ),
+            IconButton(
+              icon: const Icon(
+                Icons.tune,
+                semanticLabel: 'filter',
+              ),
+              onPressed: () {
+                print('Filter button');
+              },
+            ),
           ]),
 
       // TODO: Add a grid view (102)
