@@ -22,36 +22,62 @@ class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
 // TODO: Make a collection of cards (102)
-  List<Card> _buildGridCards(int count) {
-    List<Card> cards = List.generate(
-      count,
-      (int index) {
-        return Card(
-          clipBehavior: Clip.antiAlias,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              AspectRatio(
-                aspectRatio: 18.0 / 11.0,
-                child: Image.asset('assets/diamond.png'),
+
+// Replace this entire method
+  List<Card> _buildGridCards(BuildContext context) {
+    List<Product> products = ProductsRepository.loadProducts(Category.all);
+
+    if (products.isEmpty) {
+      return const <Card>[];
+    }
+
+    final ThemeData theme = Theme.of(context);
+    final NumberFormat formatter = NumberFormat.simpleCurrency(
+        locale: Localizations.localeOf(context).toString());
+
+    return products.map((product) {
+      return Card(
+        clipBehavior: Clip.antiAlias,
+        // TODO: Adjust card heights (103)
+        child: Column(
+          // TODO: Center items on the card (103)
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            AspectRatio(
+              aspectRatio: 18 / 11,
+              child: Image.asset(
+                product.assetName,
+                package: product.assetPackage,
+                // TODO: Adjust the box size (102)
               ),
-              Padding(
+            ),
+            Expanded(
+              child: Padding(
                 padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
                 child: Column(
+                  // TODO: Align labels to the bottom and center (103)
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const <Widget>[
-                    Text('Title'),
-                    SizedBox(height: 8.0),
-                    Text('Secondary Text'),
+                  // TODO: Change innermost Column (103)
+                  children: <Widget>[
+                    // TODO: Handle overflowing labels (103)
+                    Text(
+                      product.name,
+                      style: theme.textTheme.headline6,
+                      maxLines: 1,
+                    ),
+                    const SizedBox(height: 8.0),
+                    Text(
+                      formatter.format(product.price),
+                      style: theme.textTheme.subtitle2,
+                    ),
                   ],
                 ),
               ),
-            ],
-          ),
-        );
-      },
-    );
-    return cards;
+            ),
+          ],
+        ),
+      );
+    }).toList();
   } // TODO: Add a variable for Category (104)
 
   @override
@@ -99,7 +125,7 @@ class HomePage extends StatelessWidget {
           crossAxisCount: 2,
           padding: const EdgeInsets.all(16.0),
           childAspectRatio: 8.0 / 9.0,
-          children: _buildGridCards(10)),
+          children: _buildGridCards(context)),
       resizeToAvoidBottomInset: false,
     );
   }
