@@ -83,6 +83,12 @@ ThemeData _buildShrineTheme() {
     ), // TODO: Add the icon themes (103)
     inputDecorationTheme: const InputDecorationTheme(
       border: OutlineInputBorder(),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          width: 2.0,
+          color: kShrineBrown900,
+        ),
+      ),
     ),
   );
 }
