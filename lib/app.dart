@@ -77,8 +77,10 @@ ThemeData _buildShrineTheme() {
       secondary: kShrineBrown900,
       error: kShrineErrorRed,
     ),
-    // TODO: Add the text themes (103)
-    // TODO: Add the icon themes (103)
+    textTheme: _buildShrineTextTheme(base.textTheme),
+    textSelectionTheme: const TextSelectionThemeData(
+      selectionColor: kShrinePink100,
+    ), // TODO: Add the icon themes (103)
     // TODO: Decorate the inputs (103)
   );
 }
