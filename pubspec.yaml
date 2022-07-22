@@ -18,8 +18,12 @@ dev_dependencies:
   flutter_lints: ^1.0.0
 
 flutter:
-  # TODO: Insert Fonts (103)
-  uses-material-design: true
+  fonts:
+    - family: Rubik
+      fonts:
+        - asset: fonts/Rubik-Regular.ttf
+        - asset: fonts/Rubik-Medium.ttf
+          weight: 500  uses-material-design: true
   assets:
     - assets/diamond.png
     # TODO: Add slanted menu asset (104)
