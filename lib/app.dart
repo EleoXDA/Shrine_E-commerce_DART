@@ -89,6 +89,9 @@ ThemeData _buildShrineTheme() {
           color: kShrineBrown900,
         ),
       ),
+      floatingLabelStyle: TextStyle(
+        color: kShrineBrown900,
+      ),
     ),
   );
 }
