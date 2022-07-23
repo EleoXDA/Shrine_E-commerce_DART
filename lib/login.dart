@@ -43,7 +43,6 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             const SizedBox(height: 120.0),
-            // TODO: Remove filled: true values (103)
             // [Name]
             TextField(
               controller: _usernameController,
@@ -64,7 +63,6 @@ class _LoginPageState extends State<LoginPage> {
 
             OverflowBar(
               alignment: MainAxisAlignment.end,
-              // TODO: Add a beveled rectangular border to CANCEL (103)
               children: <Widget>[
                 TextButton(
                   child: const Text('CANCEL'),
@@ -79,8 +77,6 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                // TODO: Add an elevation to NEXT (103)
-                // TODO: Add a beveled rectangular border to NEXT (103)
                 ElevatedButton(
                   child: const Text('NEXT'),
                   onPressed: () {
