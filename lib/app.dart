@@ -33,10 +33,13 @@ class ShrineApp extends StatelessWidget {
       routes: {
         '/login': (BuildContext context) => const LoginPage(),
         // TODO: Change to a Backdrop with a HomePage frontLayer (104)
-        '/': (BuildContext context) => const HomePage(),
-        // TODO: Make currentCategory field take _currentCategory (104)
-        // TODO: Pass _currentCategory for frontLayer (104)
-        // TODO: Change backLayer field value to CategoryMenuPage (104)
+        '/': (BuildContext context) => Backdrop(
+              currentCategory: Category.all,
+              frontLayer: HomePage(),
+              backLayer: Container(color: kShrinePink100),
+              frontTitle: Text('SHRINE'),
+              backTitle: Text('MENU'),
+            ),
       },
       theme: _kShrineTheme, // New code
     );
