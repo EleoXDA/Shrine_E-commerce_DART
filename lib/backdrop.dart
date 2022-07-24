@@ -114,3 +114,6 @@ class _BackdropState extends State<Backdrop>
     );
   }
 }
+
+// TODO: Add velocity constant (104)
+const double _kFlingVelocity = 2.0;
