@@ -126,10 +126,12 @@ class _BackdropState extends State<Backdrop>
     var appBar = AppBar(
       elevation: 0.0,
       titleSpacing: 0.0,
-      // TODO: Replace leading menu icon with IconButton (104)
       // TODO: Remove leading property (104)
       // TODO: Create title with _BackdropTitle parameter (104)
-      leading: Icon(Icons.menu),
+      leading: IconButton(
+        icon: const Icon(Icons.menu),
+        onPressed: _toggleBackdropLayerVisibility,
+      ),
       title: Text('SHRINE'),
       actions: <Widget>[
         // TODO: Add shortcut to login screen from trailing icons (104)
