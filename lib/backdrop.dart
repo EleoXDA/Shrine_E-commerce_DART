@@ -156,7 +156,7 @@ class _BackdropState extends State<Backdrop>
     return Scaffold(
       appBar: appBar,
       // TODO: Return a LayoutBuilder widget (104)
-      body: _buildStack(),
+      body: LayoutBuilder(builder: _buildStack),
     );
   }
 }
