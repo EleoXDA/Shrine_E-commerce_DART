@@ -89,20 +89,34 @@ class _BackdropState extends State<Backdrop>
         velocity: _frontLayerVisible ? -_kFlingVelocity : _kFlingVelocity);
   } // TODO: Add BuildContext and BoxConstraints parameters to _buildStack (104)
 
-  Widget _buildStack() {
+  Widget _buildStack(BuildContext context, BoxConstraints constraints) {
+    const double layerTitleHeight = 48.0;
+    final Size layerSize = constraints.biggest;
+    final double layerTop = layerSize.height - layerTitleHeight;
+
     // TODO: Create a RelativeRectTween Animation (104)
+    Animation<RelativeRect> layerAnimation = RelativeRectTween(
+      begin: RelativeRect.fromLTRB(
+          0.0, layerTop, 0.0, layerTop - layerSize.height),
+      end: const RelativeRect.fromLTRB(0.0, 0.0, 0.0, 0.0),
+    ).animate(_controller.view);
 
     return Stack(
       key: _backdropKey,
       children: <Widget>[
+        // TODO: Wrap backLayer in an ExcludeSemantics widget (104)
         ExcludeSemantics(
           child: widget.backLayer,
           excluding: _frontLayerVisible,
         ),
-        widget.backLayer,
         // TODO: Add a PositionedTransition (104)
-        // TODO: Wrap front layer in _FrontLayer (104)
-        _FrontLayer(child: widget.frontLayer),
+        PositionedTransition(
+          rect: layerAnimation,
+          child: _FrontLayer(
+            // TODO: Implement onTap property on _BackdropState (104)
+            child: widget.frontLayer,
+          ),
+        ),
       ],
     );
   }
