@@ -78,7 +78,6 @@ class _BackdropState extends State<Backdrop>
     super.dispose();
   }
 
-// TODO: Add functions to get and change front layer visibility (104)
   bool get _frontLayerVisible {
     final AnimationStatus status = _controller.status;
     return status == AnimationStatus.completed ||
@@ -96,7 +95,10 @@ class _BackdropState extends State<Backdrop>
     return Stack(
       key: _backdropKey,
       children: <Widget>[
-        // TODO: Wrap backLayer in an ExcludeSemantics widget (104)
+        ExcludeSemantics(
+          child: widget.backLayer,
+          excluding: _frontLayerVisible,
+        ),
         widget.backLayer,
         // TODO: Add a PositionedTransition (104)
         // TODO: Wrap front layer in _FrontLayer (104)
