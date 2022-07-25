@@ -39,10 +39,8 @@ class TwoProductCardColumn extends StatelessWidget {
           ? constraints.biggest.width / heightOfImages
           : 49.0 / 33.0;
 
-      // TODO: Replace Column with a ListView (104)
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      return ListView(
+        physics: const ClampingScrollPhysics(),
         children: <Widget>[
           Padding(
             padding: const EdgeInsetsDirectional.only(start: 28.0),
