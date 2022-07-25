@@ -76,16 +76,14 @@ class OneProductCardColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Replace Column with a ListView (104)
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
+    return ListView(
+      physics: const ClampingScrollPhysics(),
+      reverse: true,
       children: <Widget>[
-        ProductCard(
-          product: product,
-        ),
         const SizedBox(
           height: 40.0,
         ),
+        ProductCard(product: product),
       ],
     );
   }
