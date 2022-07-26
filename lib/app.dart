@@ -30,6 +30,14 @@ class ShrineApp extends StatefulWidget {
 }
 
 class _ShrineAppState extends State<ShrineApp> {
+  Category _currentCategory = Category.all;
+
+  void _onCategoryTap(Category category) {
+    setState(() {
+      _currentCategory = category;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -46,7 +54,7 @@ class _ShrineAppState extends State<ShrineApp> {
               backTitle: Text('MENU'),
             ),
       },
-      theme: _kShrineTheme, // New code
+      theme: _kShrineTheme,
     );
   }
 }
