@@ -27,9 +27,11 @@ class Backdrop extends StatefulWidget {
 class _FrontLayer extends StatelessWidget {
   const _FrontLayer({
     Key? key,
+    this.onTap,
     required this.child,
   }) : super(key: key);
 
+  final VoidCallback? onTap;
   final Widget child;
 
   @override
