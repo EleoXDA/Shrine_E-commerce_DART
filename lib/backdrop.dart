@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'login.dart';
 import 'model/product.dart';
 
 // TODO: Add velocity constant (104)
@@ -223,31 +224,38 @@ class _BackdropState extends State<Backdrop>
     var appBar = AppBar(
       elevation: 0.0,
       titleSpacing: 0.0,
-      // TODO: Remove leading property (104)
-      // TODO: Create title with _BackdropTitle parameter (104)
-      leading: IconButton(
-        icon: const Icon(Icons.menu),
-        onPressed: _toggleBackdropLayerVisibility,
+      title: _BackdropTitle(
+        listenable: _controller.view,
+        onPress: _toggleBackdropLayerVisibility,
+        frontTitle: widget.frontTitle,
+        backTitle: widget.backTitle,
       ),
-      title: Text('SHRINE'),
       actions: <Widget>[
         // TODO: Add shortcut to login screen from trailing icons (104)
         IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.search,
-            semanticLabel: 'search',
+            semanticLabel: 'login', // New code
           ),
           onPressed: () {
             // TODO: Add open login (104)
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (BuildContext context) => LoginPage()),
+            );
           },
         ),
         IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.tune,
-            semanticLabel: 'filter',
+            semanticLabel: 'login', // New code
           ),
           onPressed: () {
             // TODO: Add open login (104)
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (BuildContext context) => LoginPage()),
+            );
           },
         ),
       ],
