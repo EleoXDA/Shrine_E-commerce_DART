@@ -1,6 +1,6 @@
-# Material Components for Flutter Codelabs
+# E-Commerce App Shrine
 
-This repository contains four codelabs for [Material Components for Flutter](https://github.com/material-components/material-components-flutter).
+This repository contains four codelabs for [Material Components for Flutter](https://github.com/material-components/material-components-flutter) that were used to create an App for E-commerce for a Company called Shrine
 
 ## Introduction
 
